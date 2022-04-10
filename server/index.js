@@ -24,8 +24,8 @@ app.get("/api/compliment", (req, res) => {
 
 app.get("/api/minorInsults", (req, res) => {
   const minorInsults = ["Your hair looks small.",
-					 "Shut up, bird!",
-					 "Your Javascript skills are stellar, your HTML and CSS skills on the other hand...",
+					 "You drive like a grandma",
+					 "You're like a grey sprinkle on a rainbow cupcake.",
   ];
 
   // choose random insult
@@ -52,7 +52,17 @@ app.get("/api/games", (req, res) => {
   res.status(200).send(randomGame)
 });
 
+app.get("/api/fortunes", (req, res) => {
+    const fortunes = ["Jealousy doesn't open doors, it closes them!",
+            "Fortune favors the brave.",
+            "A dream you have will come true.",
+            "Never give up, you're not a failure if you don't give up.",
+            "Adversity is the parent of virtue."];
+  let randomIndex = Math.floor(Math.random() * fortunes.length);
+  let randomFortune = fortunes[randomIndex];
 
+  res.status(200).send(randomFortune)
+});
 
 
 app.listen(4000, () => console.log("Server running on 4000"));
